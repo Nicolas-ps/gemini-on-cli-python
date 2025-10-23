@@ -1,7 +1,4 @@
-import os
-import signal
-import sys
-import time
+import os, signal, sys, time
 
 from dotenv import load_dotenv
 from google import genai
@@ -30,7 +27,9 @@ execute = True
 while execute :
     question = input("Oque te apetece? (Digite 'q' para encerrar): ")
     if question == 'q':
-        interrupt()
+        time.sleep(1)
+        print('\nEncerrando...')
+        sys.exit(0)
 
     response = client.models.generate_content(
         model=os.environ.get('MODEL_ID'),
